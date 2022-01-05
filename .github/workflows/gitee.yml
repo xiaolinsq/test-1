@@ -1,0 +1,19 @@
+name: 🔀 Sync mirror to Gitee
+
+on:
+  push:
+    branches:
+      - master
+  create:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: mirror
+        continue-on-error: true
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
+        with:
+          source-repo: 'git@github.com:kdcloudone/test.git'
+          destination-repo: 'git@gitee.com:kdcloudone/test.git'
