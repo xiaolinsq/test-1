@@ -8,14 +8,7 @@
 # read our documentation at https://github.com/codescan-io/codescan-scanner-action
 name: CodeScan
 
-on:
-  push:
-    branches: [ $default-branch, $protected-branches ]
-  pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ $default-branch ]
-  schedule:
-      - cron: '0 0 * * 0'
+on: [ push ]
 
 jobs:
     CodeScan:
